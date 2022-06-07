@@ -27,6 +27,5 @@ function eliminarProducto(e){
 
     e.target.parentNode.parentNode.remove();
 
-    // localStorage.setItem("carrito", JSON.stringify(carrito));
     localStorage.setItem("arrayCarrito", JSON.stringify(carrito))
 }
