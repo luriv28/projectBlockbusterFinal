@@ -10,7 +10,7 @@ class ProductoCarrito{
         this.cantidad = 1;
         this.id = id;
         this.subtotal = precio;
-        // this.total = precio;
+        
     }
 
 }
