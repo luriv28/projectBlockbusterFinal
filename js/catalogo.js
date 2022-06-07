@@ -1,19 +1,19 @@
-let arrayCarrito = [];
+// let arrayCarrito = [];
 
-class ProductoCarrito{
+// class ProductoCarrito{
 
-    constructor(nombre, precio, imagen, id, subtotal)
-    {
-        this.nombre = nombre;
-        this.precio = precio;
-        this.imagen = imagen;
-        this.cantidad = 1;
-        this.id = id;
-        this.subtotal = precio;
+//     constructor(nombre, precio, imagen, id, subtotal)
+//     {
+//         this.nombre = nombre;
+//         this.precio = precio;
+//         this.imagen = imagen;
+//         this.cantidad = 1;
+//         this.id = id;
+//         this.subtotal = precio;
         
-    }
+//     }
 
-}
+// }
 
 
 let divContainer = document.getElementById("row");
