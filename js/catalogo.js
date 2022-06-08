@@ -98,6 +98,6 @@ function carritoNav(arrayCarrito){
         totalProductos += producto.cantidad
     }
     textoCarrito.innerHTML = "";
-    textoCarrito.innerHTML = `<p>Carrito 
+    textoCarrito.innerHTML = `<p>ShopCart 
     (${totalProductos})</p>`
 }
