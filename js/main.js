@@ -1,9 +1,4 @@
 
-const nodo = document.getElementById("saludo");
-const userName = prompt("State your Username ")
-nodo.classList.add('saludo')
-nodo.innerHTML = `<b>Welcome, ${userName}!</b>`;
-
 const games = ["Zelda: Ocarine of time", "Fortnite", "Apex Legends", "Alice in Wonderland", "Call of Duty: Warzone", "Valorant", "Dead by daylight", "The Witcher: Wild Hunt"]
 
 
