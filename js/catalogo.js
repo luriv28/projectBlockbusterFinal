@@ -22,10 +22,10 @@ function rellenarIndex(arrayProductos)
 {
     for(let producto of arrayProductos){
          let div = document.createElement("div");
-         div.classList = "col-4 mt-3";
+         div.classList = "col-4 mt-3 img-fluid";
          
          div.innerHTML = `
-         <div class= "card" style="width: 18rem;">
+         <div class= "card img-fluid" style="width: 18rem;">
                 <img src= "${producto.imagen}" class="card-img-top" alt="${producto.id}">
                 <div class ="card-body">
                      <h5 class="card-title">${producto.nombre}</h5>

@@ -13,16 +13,41 @@ const productos =
         id: 2
     },
     {
-        nombre: "Apex 2",
+        nombre: "Borderlands 3",
         precio: 10000,
-        imagen:"./assets/apex2.jpg",
+        imagen:"./assets/borderlands3.jpg",
         id: 3
     },
     {
-        nombre:"Cyberpunk 3030",
+        nombre:"evilDead",
         precio: 12500,
-        imagen: "./assets/cyberpunk.jpg",
+        imagen: "./assets/evilDead.jpg",
         id: 4
+    }
+    ,
+    {
+        nombre:"God of War",
+        precio: 12500,
+        imagen: "./assets/godOfWar.jpg",
+        id: 5
+    },
+    {
+        nombre:"Halo",
+        precio: 12500,
+        imagen: "./assets/halo.jpg",
+        id: 6
+    },
+    {
+        nombre:"Naraka: Bladepoint",
+        precio: 12500,
+        imagen: "./assets/naraka.jpg",
+        id: 7
+    },
+    {
+        nombre:"Resident Evil: Village",
+        precio: 12500,
+        imagen: "./assets/resident.jpg",
+        id: 8
     }
     
 
