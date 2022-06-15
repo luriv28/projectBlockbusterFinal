@@ -10,9 +10,10 @@ function rellenarCarrito(arrayCarrito){
         row.innerHTML = `<td><img src='${producto.imagen}'width="200px"</td>
         <td>${producto.nombre}</td>
         <td>$${producto.precio}</td>
-        <td><button id="${producto.id}"class="btn btn-primary plus"> + </button><p id='quantity'>${producto.cantidad}</p> 
-           <button id="${producto.id}" class="btn btn-primary minus" > - </button></td>
-        <td id='subtotal'>${producto.subtotal}<td><button id="${producto.id}"class="btn btn-danger eliminarProducto">Delete</button></td>`
+        <td><button id="${producto.id}"class="btn btn-primary plus">+</button><p id='${producto.id}' class='quantity'>${producto.cantidad}</p> 
+           <button id="${producto.id}" class="btn btn-primary minus" >-</button></td>
+        <td id='${producto.id}' class='subtotal'>${producto.subtotal}</td>
+        <td><button id="${producto.id}"class="btn btn-danger eliminarProducto">Eliminar</button></td>`
 
 
         tbody.appendChild(row);
@@ -73,23 +74,82 @@ const buttonVariatons = () =>{
 
     const sumButtons = document.querySelectorAll(".plus");
     const restButtons = document.querySelectorAll(".minus");
-    const quantityTd = document.getElementById('quantity')
-    const subtotalTd = document.getElementById('subtotal')
+    const quantityTd = document.querySelectorAll('.quantity')
+    const subtotalTd = document.querySelectorAll('.subtotal')
     sumButtons.forEach(btn => {
-    btn.addEventListener('click',()=> {
-        carrito.forEach((producto)=>{
-            if (btn.id == producto.id){
-                producto.cantidad++
-                producto.subtotal = producto.cantidad * producto.precio
-            }
-            quantityTd.innerHTML = producto.cantidad
-            subtotalTd.innerHTML = producto.subtotal
+        btn.addEventListener('click',()=> {
+            carrito.forEach((producto)=>{
+                if (btn.id == producto.id){
+                    producto.cantidad++
+                    producto.subtotal = producto.cantidad * producto.precio
+                    quantityTd.forEach((qt) => {
+                        if (qt.id == btn.id) {
+                            qt.innerHTML = producto.cantidad
+                    }
+                    subtotalTd.forEach((st) => {
+                        if (st.id == btn.id) {
+                            console.log('entra');
+                            st.innerHTML = producto.subtotal 
+                    }
+                    })
+                    })
+                    
+                }
+                
+            })
+            localStorage.clear();
+            localStorage.setItem('arrayCarrito', JSON.stringify(carrito))
+    
         })
-        localStorage.clear();
-        localStorage.setItem('arrayCarrito', JSON.stringify(carrito))
-       
-    })
- })
-
-}
-buttonVariatons();
+     })
+    // REST FEATURE
+    restButtons.forEach(btn => {
+        btn.addEventListener('click',()=> {
+            carrito.forEach((producto)=>{
+                if (producto.cantidad > 0) {
+                     if (btn.id == producto.id){
+                    producto.cantidad--
+                    producto.subtotal = producto.cantidad * producto.precio
+                    quantityTd.forEach((qt) => {
+                        if (qt.id == btn.id) {
+                            qt.innerHTML = producto.cantidad
+                    }
+                    subtotalTd.forEach((st) => {
+                        if (st.id == btn.id) {
+                            console.log('entra');
+                            st.innerHTML = producto.subtotal 
+                    }
+                    })
+                    })
+                    
+                }
+                } else {
+                    // ACÁ VA EL FILTRO
+                    if (btn.id == producto.id){
+                      let newCarrito =   carrito.filter((prodToDelete) => {
+                                            prodToDelete.id != btn.id
+                     })
+                     console.log(newCarrito);
+                        
+                     }
+                   
+                }
+               
+                
+            })
+            localStorage.clear();
+            localStorage.setItem('arrayCarrito', JSON.stringify(carrito))
+    
+        })
+     })
+    
+    
+     
+    
+    
+    
+    
+    
+    
+    }
+    buttonVariatons();
