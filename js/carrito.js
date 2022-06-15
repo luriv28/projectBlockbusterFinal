@@ -143,13 +143,5 @@ const buttonVariatons = () =>{
         })
      })
     
-    
-     
-    
-    
-    
-    
-    
-    
-    }
+}
     buttonVariatons();
