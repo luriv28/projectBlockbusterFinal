@@ -6,7 +6,11 @@ function rellenarCarrito(arrayCarrito){
     for(let producto of arrayCarrito){
         
         let row = document.createElement("tr");
-        row.innerHTML = `<td>${producto.nombre}</td><td>$${producto.precio}</td><td>${producto.cantidad}</td><td>${producto.subtotal}<td><button id="${producto.id}" class="btn btn-danger eliminarProducto">Eliminate</button></td>`
+        row.innerHTML = `<td><img src='${producto.imagen}'width="200px"</td>
+        <td>${producto.nombre}</td>
+        <td>$${producto.precio}</td>
+        <td>${producto.cantidad}</td>
+        <td>${producto.subtotal}<td><button id="${producto.id}" class="btn btn-danger eliminarProducto">Eliminate</button></td>`
 
         tbody.appendChild(row);
     }
