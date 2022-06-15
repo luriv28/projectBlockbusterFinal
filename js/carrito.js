@@ -1,4 +1,5 @@
 const carrito = JSON.parse(localStorage.getItem("arrayCarrito"));
+const totalDiv = document.getElementById('totalCarrito');
 
 let tbody = document.querySelector("#tbody");
 
@@ -9,11 +10,17 @@ function rellenarCarrito(arrayCarrito){
         row.innerHTML = `<td><img src='${producto.imagen}'width="200px"</td>
         <td>${producto.nombre}</td>
         <td>$${producto.precio}</td>
-        <td>${producto.cantidad}</td>
-        <td>${producto.subtotal}<td><button id="${producto.id}" class="btn btn-danger eliminarProducto">Eliminate</button></td>`
+        <td><button id="${producto.id}"class="btn btn-primary plus"> + </button><p id='quantity'>${producto.cantidad}</p> 
+           <button id="${producto.id}" class="btn btn-primary minus" > - </button></td>
+        <td id='subtotal'>${producto.subtotal}<td><button id="${producto.id}"class="btn btn-danger eliminarProducto">Delete</button></td>`
+
 
         tbody.appendChild(row);
     }
+      totalDiv.innerHTML = 'Total'
+
+    calcularTotal(carrito)
+
 }
 
 rellenarCarrito(carrito);
@@ -24,6 +31,8 @@ botonesEliminar.forEach(elemento =>{
     elemento.addEventListener("click", eliminarProducto)
 });
 
+
+
 function eliminarProducto(e){
     let index = carrito.findIndex(producto => producto.id == e.target.id)
 
@@ -31,5 +40,56 @@ function eliminarProducto(e){
 
     e.target.parentNode.parentNode.remove();
 
-    localStorage.setItem("arrayCarrito", JSON.stringify(carrito))
+    localStorage.setItem("arrayCarrito", JSON.stringify(carrito));
+    totalDiv.innerHTML = 'Total'
+
+    calcularTotal(carrito)
 }
+
+function calcularTotal (carrito) {
+
+    if (carrito) {
+         
+    let carritoCopy = [...carrito] // Esto se hace para no actuar directamente sobre el array real
+    console.log(carritoCopy);
+    let total = []
+    for(let producto of carritoCopy){
+        total.push(producto.subtotal)
+        
+    }
+    if (total.length){
+    const finalTotal = total.reduce((a, b) => parseInt(a) + parseInt(b))
+    console.log(finalTotal);
+    totalDiv.innerHTML += `: $${finalTotal}`
+    }
+    } else {
+        totalDiv.innerHTML = 'Total'
+    }
+  
+
+}
+
+const buttonVariatons = () =>{
+
+    const sumButtons = document.querySelectorAll(".plus");
+    const restButtons = document.querySelectorAll(".minus");
+    const quantityTd = document.getElementById('quantity')
+    const subtotalTd = document.getElementById('subtotal')
+    sumButtons.forEach(btn => {
+    btn.addEventListener('click',()=> {
+        carrito.forEach((producto)=>{
+            if (btn.id == producto.id){
+                producto.cantidad++
+                producto.subtotal = producto.cantidad * producto.precio
+            }
+            quantityTd.innerHTML = producto.cantidad
+            subtotalTd.innerHTML = producto.subtotal
+        })
+        localStorage.clear();
+        localStorage.setItem('arrayCarrito', JSON.stringify(carrito))
+       
+    })
+ })
+
+}
+buttonVariatons();

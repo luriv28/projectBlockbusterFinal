@@ -95,3 +95,7 @@ button:hover, button.active{
     align-items: center;
     justify-content: center;
 }
+
+.colorTotal{
+    color: red;
+}
