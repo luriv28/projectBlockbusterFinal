@@ -58,7 +58,7 @@ function calcularTotal (carrito) {
         total.push(producto.subtotal)
         
     }
-    if (total.length){
+    if (total.length > 0){
     const finalTotal = total.reduce((a, b) => parseInt(a) + parseInt(b))
     console.log(finalTotal);
     totalDiv.innerHTML += `: $${finalTotal}`
@@ -98,7 +98,9 @@ const buttonVariatons = () =>{
                 
             })
             localStorage.clear();
-            localStorage.setItem('arrayCarrito', JSON.stringify(carrito))
+            localStorage.setItem('arrayCarrito', JSON.stringify(carrito));
+            totalDiv.innerHTML = 'Total'
+            calcularTotal(carrito)
     
         })
      })
@@ -109,7 +111,11 @@ const buttonVariatons = () =>{
                 if (producto.cantidad > 0) {
                      if (btn.id == producto.id){
                     producto.cantidad--
-                    producto.subtotal = producto.cantidad * producto.precio
+                    producto.subtotal = producto.cantidad * producto.precio;
+                    if(producto.cantidad <= 0){
+                        producto.cantidad = 1
+                        qt.innerHTML = producto.cantidad
+                    }
                     quantityTd.forEach((qt) => {
                         if (qt.id == btn.id) {
                             qt.innerHTML = producto.cantidad
@@ -120,6 +126,7 @@ const buttonVariatons = () =>{
                             st.innerHTML = producto.subtotal 
                     }
                     })
+                    
                     })
                     
                 }
@@ -128,6 +135,7 @@ const buttonVariatons = () =>{
                     if (btn.id == producto.id){
                       let newCarrito =   carrito.filter((prodToDelete) => {
                                             prodToDelete.id != btn.id
+                                           
                      })
                      console.log(newCarrito);
                         
@@ -139,9 +147,15 @@ const buttonVariatons = () =>{
             })
             localStorage.clear();
             localStorage.setItem('arrayCarrito', JSON.stringify(carrito))
+            totalDiv.innerHTML = 'Total'
+            calcularTotal(carrito)
     
         })
+        
      })
-    
+     
+     
 }
     buttonVariatons();
+
+
