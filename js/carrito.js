@@ -109,13 +109,16 @@ const buttonVariatons = () =>{
         btn.addEventListener('click',()=> {
             carrito.forEach((producto)=>{
                 if (producto.cantidad > 0) {
-                     if (btn.id == producto.id){
+                     if (btn.id == producto.id && producto.cantidad>= 2){
                     producto.cantidad--
                     producto.subtotal = producto.cantidad * producto.precio;
-                    if(producto.cantidad <= 0){
-                        producto.cantidad = 1
-                        qt.innerHTML = producto.cantidad
-                    }
+                    // if(producto.cantidad >= 1){
+                    //     producto.cantidad--
+                    //     totalDiv.innerHTML = 'Total'
+                    //     calcularTotal(carrito)
+                    //     //  producto.cantidad.innerHTML = producto.id
+                    //     //  producto.subtotal.innerHTML = producto.id
+                    // }
                     quantityTd.forEach((qt) => {
                         if (qt.id == btn.id) {
                             qt.innerHTML = producto.cantidad
