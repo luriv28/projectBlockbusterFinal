@@ -59,6 +59,7 @@ function initCarritoEvents()
     botones.forEach(elemento => {
         elemento.addEventListener('click', anadirCarrito)
     })
+  
 }
 
 function anadirCarrito(e)
@@ -86,7 +87,9 @@ function anadirCarrito(e)
       arrayCarrito[index].precio * arrayCarrito[index].cantidad
   }
   localStorage.setItem('arrayCarrito', JSON.stringify(arrayCarrito))
-
+  if (carritoLocalStorage) {
+    carritoNav(carritoLocalStorage)
+}
   carritoNav(arrayCarrito)
 }
 
