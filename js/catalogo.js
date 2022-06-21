@@ -18,7 +18,7 @@ class ProductoCarrito
 
 
 
-    fetch('./listadoProductos.JSON')
+    fetch('./listadoProductos.json')
         .then((res) => res.json())
         .then(listadoProductos => {
             console.log(listadoProductos);
