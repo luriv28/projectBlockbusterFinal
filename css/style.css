@@ -96,6 +96,21 @@ button:hover, button.active{
     justify-content: center;
 }
 
+.contenedorDelTotal{
+    display: flex;
+    justify-content: center;
+}
+
 .colorTotal{
-    color: red;
+    color: rgb(211, 211, 186);
+    font-weight: bolder;
+    margin: 5px;
+    width: 50vh;
+    display: flex;
+    justify-content: center;
+}
+
+#botonFinalizar{
+    display: flex;
+    justify-content: center;
 }

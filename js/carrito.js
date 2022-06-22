@@ -20,7 +20,7 @@ if (localStorage.getItem("arrayCarrito")) {
 
             tbody.appendChild(row);
         }
-        totalDiv.innerHTML = 'Total'
+        totalDiv.innerHTML = 'Total amount payable'
 
         calcularTotal(carrito)
 
@@ -44,7 +44,7 @@ if (localStorage.getItem("arrayCarrito")) {
         e.target.parentNode.parentNode.remove();
 
         localStorage.setItem("arrayCarrito", JSON.stringify(carrito));
-        totalDiv.innerHTML = 'Total'
+        totalDiv.innerHTML = 'Total amount payable'
 
         calcularTotal(carrito)
     }
@@ -66,7 +66,7 @@ if (localStorage.getItem("arrayCarrito")) {
                 totalDiv.innerHTML += `: $${finalTotal}`
             }
         } else {
-            totalDiv.innerHTML = 'Total'
+            totalDiv.innerHTML = 'Total amount payable'
         }
   
 
@@ -101,7 +101,7 @@ if (localStorage.getItem("arrayCarrito")) {
                 })
                 localStorage.clear();
                 localStorage.setItem('arrayCarrito', JSON.stringify(carrito));
-                totalDiv.innerHTML = 'Total'
+                totalDiv.innerHTML = 'Total amount payable'
                 calcularTotal(carrito)
     
             })
@@ -114,13 +114,6 @@ if (localStorage.getItem("arrayCarrito")) {
                         if (btn.id == producto.id && producto.cantidad >= 2) {
                             producto.cantidad--
                             producto.subtotal = producto.cantidad * producto.precio;
-                            // if(producto.cantidad >= 1){
-                            //     producto.cantidad--
-                            //     totalDiv.innerHTML = 'Total'
-                            //     calcularTotal(carrito)
-                            //     //  producto.cantidad.innerHTML = producto.id
-                            //     //  producto.subtotal.innerHTML = producto.id
-                            // }
                             quantityTd.forEach((qt) => {
                                 if (qt.id == btn.id) {
                                     qt.innerHTML = producto.cantidad
@@ -152,7 +145,7 @@ if (localStorage.getItem("arrayCarrito")) {
                 })
                 localStorage.clear();
                 localStorage.setItem('arrayCarrito', JSON.stringify(carrito))
-                totalDiv.innerHTML = 'Total'
+                totalDiv.innerHTML = 'Total amount payable'
                 calcularTotal(carrito)
     
             })
@@ -163,5 +156,13 @@ if (localStorage.getItem("arrayCarrito")) {
     }
     buttonVariatons();
 
+    const botonFinalizarCompra = document.getElementById("botonFinalizar");
 
+    botonFinalizarCompra.addEventListener("click", () => {
+        Swal.fire(
+            'Thanks for purchasing!',
+            'A copy of the receipt will be sent to your e-mail shortly.',
+            'success'
+          )
+    })
 }
