@@ -14,7 +14,8 @@ if (localStorage.getItem("arrayCarrito")) {
         <td>$${producto.precio}</td>
         <td><button id="${producto.id}"class="btn btn-primary plus">+</button><p id='${producto.id}' class='quantity'>${producto.cantidad}</p> 
            <button id="${producto.id}" class="btn btn-primary minus" >-</button></td>
-        <td id='${producto.id}' class='subtotal'>${producto.subtotal}</td>
+        <td id='${producto.id}' class='subtotal'>
+        $${producto.subtotal}</td>
         <td><button id="${producto.id}"class="btn btn-danger eliminarProducto">Eliminar</button></td>`
 
 
@@ -91,7 +92,7 @@ if (localStorage.getItem("arrayCarrito")) {
                             subtotalTd.forEach((st) => {
                                 if (st.id == btn.id) {
                                     console.log('entra');
-                                    st.innerHTML = producto.subtotal
+                                    st.innerHTML = ` $ ${producto.subtotal}`
                                 }
                             })
                         })
@@ -121,7 +122,7 @@ if (localStorage.getItem("arrayCarrito")) {
                                 subtotalTd.forEach((st) => {
                                     if (st.id == btn.id) {
                                         console.log('entra');
-                                        st.innerHTML = producto.subtotal
+                                        st.innerHTML = ` $ ${producto.subtotal}`
                                     }
                                 })
                     

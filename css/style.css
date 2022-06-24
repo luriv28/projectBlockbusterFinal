@@ -5,16 +5,17 @@
 
 body{
     font-family: 'Titillium Web', sans-serif;
-    background-image: url(../assets/portadaGame2.jpg);
+    background-image: url(../assets/plano1.jpg);
+    width: 100%;
 }
 h1{
-    color: #5d78c1;
+    color: crimson;
     text-align: center;
     padding-top: 10px;
 
 }
 h3{
-    color: #5d78c1;
+    color: crimson;
     text-align: center;
     padding-top: 5px;
     font-size: x-large;
@@ -102,7 +103,7 @@ button:hover, button.active{
 }
 
 .colorTotal{
-    color: rgb(211, 211, 186);
+    color: black;
     font-weight: bolder;
     margin: 5px;
     width: 50vh;

@@ -29,10 +29,10 @@
         <div class="container1">
             <ul class="nav nav-pills contenedor ">
                 <li class="nav-item">
-                    <a class="nav-link link-success" aria-current="page" href="./index.html">Home</a>
+                    <a class="nav-link link-secondary" aria-current="page" href="./index.html">Home</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle link-success" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Principal</a>
+                    <a class="nav-link dropdown-toggle link-secondary" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Principal</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">FPS</a></li>
                         <li><a class="dropdown-item" href="#" >Adventure</a></li>
@@ -41,13 +41,13 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link link-warning" href="#" id="btnLogin">Login</a>
+                    <a class="nav-link link-danger" href="#" id="btnLogin">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link link-success" href="./carrito.html">ShopCart</a>
+                    <a class="nav-link link-secondary" href="./carrito.html" id="anchor_carrito">ShopCart</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link link-success" aria-current="page" href="#">Us</a>
+                    <a class="nav-link link-secondary" aria-current="page" href="#">Us</a>
                 </li>
                 
             </ul>
@@ -55,7 +55,7 @@
     </header>
     
 
-    <table class="table table-primary text-center">
+    <table class="table table-warning text-center">
         <thead>
           <tr>
             <th></th>
@@ -72,16 +72,20 @@
         <!-- aca en tbody voy a escribir la info del carrito guardada en local storage -->
         <tbody id="tbody"></tbody>
         
-      </table>
+    </table>
 
-     <div class="contenedorDelTotal"> 
+    <div class="contenedorDelTotal"> 
+
         <div id="totalCarrito" class="colorTotal" style="border:3px solid wheat">Total amount payable</div>
+
     </div><br>
       
-    <div id="botonFinalizar" ><button>Proceed to checkout</button></div>
+    <div id="botonFinalizar" ><button class="btn btn-success">Proceed to checkout</button></div>
       
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+
+
     <script src="./js/carrito.js"></script>
     <script defer src="./js/logIn.js"></script>
 
