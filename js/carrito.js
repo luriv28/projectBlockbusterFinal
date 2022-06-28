@@ -54,7 +54,7 @@ if (localStorage.getItem("arrayCarrito")) {
 
         if (carrito) {
          
-            let carritoCopy = [...carrito] // Esto se hace para no actuar directamente sobre el array real
+            let carritoCopy = [...carrito] // Esto lo hago para no actuar directamente sobre el array real
             console.log(carritoCopy);
             let total = []
             for (let producto of carritoCopy) {
